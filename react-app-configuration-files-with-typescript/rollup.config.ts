@@ -4,6 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import html from '@rollup/plugin-html';
 import replace from '@rollup/plugin-replace';
+import eslint from '@rollup/plugin-eslint';
 
 export default (args: any) =>
     [
@@ -17,10 +18,10 @@ export default (args: any) =>
                 },
             ],
             plugins: [
+                eslint(),
                 typescript(),
                 resolve(),
                 commonjs(),
-
                 html({
                     template: (templateOptions) => {
                         return `
@@ -36,6 +37,7 @@ export default (args: any) =>
                     },
                 }),
                 replace({
+                    preventAssignment: true,
                     'process.env.NODE_ENV': JSON.stringify(args.configEnv),
                 }),
             ],
