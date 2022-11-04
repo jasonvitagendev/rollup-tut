@@ -1,0 +1,17 @@
+{
+    "name": "rollup-library-tut-babel",
+    "version": "1.0.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jasonvitagendev/rollup-library-tut.git"
+    },
+    "main": "./dist/index.js",
+    "types": "./dist/src",
+    "browserslist": [
+        "last 2 versions",
+        "IE 9"
+    ],
+    "dependencies": {
+        "@babel/runtime-corejs3": "^7.20.1"
+    }
+}

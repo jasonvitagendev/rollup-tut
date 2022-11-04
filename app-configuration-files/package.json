@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "rollup-library-tut": "^1.7.0"
+    "rollup-library-tut": "^1.7.0",
+    "rollup-library-tut-babel": "^1.0.0"
   }
 }
