@@ -4,6 +4,7 @@ import html from '@rollup/plugin-html';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
+import eslint from '@rollup/plugin-eslint';
 
 export default {
     input: 'src/index.js',
@@ -32,6 +33,7 @@ export default {
         },
     ],
     plugins: [
+        eslint(),
         babel({
             babelHelpers: 'bundled',
             exclude: /node_modules/,
@@ -40,7 +42,6 @@ export default {
         commonjs(),
         html({
             template: (templateOptions) => {
-                console.log(templateOptions.bundle);
                 return `
                     <!doctype html><html lang="en"><head></head><body><div id="app"></div>
                     ${Object.keys(templateOptions.bundle).reduce(

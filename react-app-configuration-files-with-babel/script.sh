@@ -1,3 +1,3 @@
 rm -r dist/*
 
-rollup --config rollup.config.ts --configPlugin typescript
+rollup --config rollup.config.ts --configPlugin typescript --watch
