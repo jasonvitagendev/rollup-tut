@@ -27,7 +27,7 @@ rollup-library-tut-babel@^1.0.0:
   dependencies:
     "@babel/runtime-corejs3" "^7.20.1"
 
-rollup-library-tut@^1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/rollup-library-tut/-/rollup-library-tut-1.7.0.tgz#6e9dc3d344241bb0bc48aea65b3ae3fcad1cf892"
-  integrity sha512-1V+GdPilGgNb3cZbq1/02F3AZiHKS7ujfcFTRL2l6JeUGR3Ifn6rDbGNWnClnzOKrp/u74VKhDFdeBE/AImBPA==
+rollup-library-tut@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/rollup-library-tut/-/rollup-library-tut-1.7.1.tgz#3ab69fc1736cfa351f2b8ebeff4bd581c09e3afb"
+  integrity sha512-ldMXVxWTV0++9kmu/2wHM9+w0wJ3m76YBmcB///+a7WQPosOly0S6ds61emy84bACWbvjfa6c0lCyNVIYB122w==

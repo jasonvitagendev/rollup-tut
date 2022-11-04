@@ -2,27 +2,56 @@ import {RollupOptions} from 'rollup';
 import typescript from '@rollup/plugin-typescript';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
+import html from '@rollup/plugin-html';
 
-export default {
-    input: 'index.ts',
-    output: [
+export default (args: any) =>
+    [
         {
-            dir: 'dist/cjs',
-            format: 'cjs',
+            input: 'src/index.ts',
+            output: [
+                {
+                    dir: 'dist',
+                    format: 'es',
+                    manualChunks: (id) => {
+                        console.log(id);
+                        if (id.includes('local-lib')) {
+                            return 'local-lib';
+                        }
+                    },
+                    sourcemap: args.configEnv === 'development',
+                },
+            ],
+            plugins: [
+                typescript(),
+                resolve(),
+                commonjs(),
+                html({
+                    fileName: 'index.html',
+                }),
+            ],
         },
         {
-            dir: 'dist/amd',
-            format: 'amd',
+            input: 'src/index2.ts',
+            output: [
+                {
+                    dir: 'dist',
+                    format: 'es',
+                    manualChunks: (id) => {
+                        console.log(id);
+                        if (id.includes('local-lib')) {
+                            return 'local-lib';
+                        }
+                    },
+                    sourcemap: args.configEnv === 'development',
+                },
+            ],
+            plugins: [
+                typescript(),
+                resolve(),
+                commonjs(),
+                html({
+                    fileName: 'index2.html',
+                }),
+            ],
         },
-        {
-            dir: 'dist/es',
-            format: 'es',
-        },
-        {
-            dir: 'dist/umd',
-            format: 'umd',
-            name: 'mylibrarytut',
-        },
-    ],
-    plugins: [typescript(), resolve(), commonjs()],
-} as RollupOptions;
+    ] as RollupOptions[];
